@@ -5,7 +5,7 @@
 Privacy Server Map is a web application developed using [Laravel framework](https://laravel.com/). The app serves as an interface for [K-Anonymity & Differential privacy Java Server](https://github.com/Mhz95/K-anonymity-DP-Server). The basic idea of this interface is to show locations received by messages on a map, and send them to the server in order to perturb them. Finally, the perturbed locations will be shown on the map. This app helps in determining the level of privacy that the server provides for each of the implemented approaches, namely: K-anonymity, Differential privacy with Gaussian or Laplacian noise. The following shows the app interface:   
 
 <p align="center">
-<img src="https://github.com/Mhz95/Privacy-Server-Map/blob/master/preview.gif" width="500">
+<img src="https://github.com/Mhz95/Privacy-Server-Map/blob/main/preview.gif" width="500">
 </p>
  
 ## About Laravel
