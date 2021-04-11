@@ -19,6 +19,7 @@ return [
     'long' => 'Longitude:',
     'generate-label' => 'Generate Random Locations',
     'generate' => 'Generate',
+    'kparam' => 'K parameter:',
     'addnewloc-label' => 'Add New Location',
     'add' => 'Add',
     'reset-label' => 'Remove All Locations',

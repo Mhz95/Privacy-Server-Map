@@ -413,6 +413,7 @@ select {
   display: inline-block;
   box-sizing: border-box;
   padding: 0.3em 2em 0.3em 0.5em;
+  margin-bottom: 10px;
   border: 1px solid #eee;
   font: inherit;
   line-height: inherit;

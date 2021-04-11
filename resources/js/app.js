@@ -59,7 +59,7 @@ $( document ).ready(function() {
     singleLoc['long'] = ln;
     color = "huechange-r";
     singleLoc['timestamp'] = Math.floor(Date.now() / 1000);
-    singleLoc['anonymity_policy'] = 'strong';
+    singleLoc['anonymity_policy'] = 'basic';
     listOfOLocations.push(singleLoc);
     addMarker(singleLoc, color, true);
     addTRClickListener();
@@ -148,6 +148,7 @@ $( document ).ready(function() {
   });
 
   function sendRequest(id, lat, long, timestamp, mech){
+    var k = $('#generate-k').val();
 
     $.ajax({
       type : 'post',
@@ -160,7 +161,7 @@ $( document ).ready(function() {
         'longitude': long,
         'timestamp': timestamp,
         'mech': mech,
-        'anonymity_policy': 'basic'
+        'anonymity_policy': k
       },
       success: function(data, textStatus, request){
         console.log(request.getAllResponseHeaders());

@@ -19,6 +19,7 @@ return [
     'long' => 'خط الطول:',
     'generate-label' => 'إضافة مواقع عشوائية',
     'generate' => 'إضافة',
+    'kparam' => 'K:',
     'addnewloc-label' => 'إضافة موقع محدد',
     'add' => 'إضافة',
     'reset-label' => 'حذف كل المواقع',

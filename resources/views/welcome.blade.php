@@ -99,7 +99,7 @@
           <input class="input-custom" type="text" id="lat" name="lat">
           <label class="label-custom" for="long">@lang('general.long')</label>
           <input class="input-custom" type="text" id="long" name="long">
-          <button class="button-dp bcolor" id="add-loc">
+          <button class="button-dp bcolor m-t-10" id="add-loc">
             <span>@lang('general.add')</span>
           </button>
         </div>
@@ -118,7 +118,12 @@
           </button>
         </div>
         <div class="action-box">
-          <label class="label-custom" for="mech">@lang('general.mech')</label>
+          <label class="label-custom" for="generate-k">@lang('general.kparam')</label>
+          <select id="generate-k" name="generate-k">
+            <option selected="selected" value="basic">K = 2</option>
+            <option value="strong">K = 4</option>
+          </select>
+          <label class="label-custom m-t-10" for="mech">@lang('general.mech')</label>
           <select id="mech" name="mech">
             <option selected="selected" value="lap">Laplacian</option>
             <option value="gau">Gaussian</option>
