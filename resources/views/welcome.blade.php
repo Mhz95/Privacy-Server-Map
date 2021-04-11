@@ -15,6 +15,7 @@
 
   <!-- Scripts -->
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
   <script src="{{ asset('js/app.js') }}" defer></script>
   <script>
   window.Laravel = <?php echo json_encode([
@@ -90,8 +91,8 @@
   </div>
 
 
-  <div id="white-box">
-    <div class="row" style="height: 100%">
+  <div id="white-box" style="display: block;overflow: auto;">
+    <div class="row" >
       <div class="col-md-3">
         <div class="action-box">
           <label class="label-custom"><b>@lang('general.addnewloc-label')</b></label>
@@ -133,8 +134,12 @@
           </button>
         </div>
         <div class="action-box">
-          <label class="label-custom">@lang('general.reset-label')</label>
-          <button class="button-dp ccolor" id="go-reset">
+          <button class="button-dp bcolor" id="save">
+            <span>@lang('general.save')</span>
+          </button>
+          <div id="download-area"></div>
+          <!-- <label class="label-custom">@lang('general.reset-label')</label> -->
+          <button class="button-dp ccolor m-t-10" id="go-reset">
             <span>@lang('general.reset')</span>
           </button>
         </div>

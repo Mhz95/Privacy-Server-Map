@@ -17,8 +17,10 @@ $( document ).ready(function() {
   var long = 46.640382;
   var timestamp = 1616975430;
   var color = "huechange-r";
-
+  var text = "";
   var listOfOLocations = [];
+  var listToCompareResults = [];
+  var count = 1;
 
   // 1,24.748344,46.640382,1616975430
   // 2,24.748038,46.639142,1616975470
@@ -39,12 +41,21 @@ $( document ).ready(function() {
     color = "huechange-r";
     for (i = 0; i < num; i++) {
       var singleLoc = {};
+      var beforeLoc = {};
       singleLoc['id'] = generateID(6);
       singleLoc['lat'] = getRandomInRange(24.74, 24.79, 6);
       singleLoc['long'] = getRandomInRange(46.64, 46.74, 6);
       singleLoc['timestamp'] = Math.floor(Date.now() / 1000) + Math.floor(Math.random()*(99-10+1)+10);
       singleLoc['anonymity_policy'] = 'basic';
       listOfOLocations.push(singleLoc);
+      beforeLoc['id'] = singleLoc['id'];
+      beforeLoc['o_lat'] = singleLoc['lat'];
+      beforeLoc['o_long'] = singleLoc['long'];
+      beforeLoc['o_time'] = singleLoc['timestamp'];
+      beforeLoc['p_lat'] = null;
+      beforeLoc['p_long'] = null;
+      beforeLoc['p_time'] = null;
+      listToCompareResults.push(beforeLoc);
       addMarker(singleLoc, color, true);
     }
     addTRClickListener();
@@ -54,6 +65,7 @@ $( document ).ready(function() {
     var lt = $('#lat').val();
     var ln = $('#long').val();
     var singleLoc = {};
+    var beforeLoc = {};
     singleLoc['id'] = generateID(6);
     singleLoc['lat'] = lt;
     singleLoc['long'] = ln;
@@ -61,6 +73,14 @@ $( document ).ready(function() {
     singleLoc['timestamp'] = Math.floor(Date.now() / 1000);
     singleLoc['anonymity_policy'] = 'basic';
     listOfOLocations.push(singleLoc);
+    beforeLoc['id'] = singleLoc['id'];
+    beforeLoc['o_lat'] = singleLoc['lat'];
+    beforeLoc['o_long'] = singleLoc['long'];
+    beforeLoc['o_time'] = singleLoc['timestamp'];
+    beforeLoc['p_lat'] = null;
+    beforeLoc['p_long'] = null;
+    beforeLoc['p_time'] = null;
+    listToCompareResults.push(beforeLoc);
     addMarker(singleLoc, color, true);
     addTRClickListener();
   });
@@ -134,6 +154,9 @@ $( document ).ready(function() {
   $('#go-reset').click(function(){
     $('#log tbody').empty();
     listOfOLocations = [];
+    text = "";
+    $('#download-area').empty();
+    listToCompareResults = [];
     mymap.eachLayer(function (layer) {
       mymap.removeLayer(layer);
     });
@@ -173,6 +196,14 @@ $( document ).ready(function() {
         singleLoc['lat'] = data.latitude;
         singleLoc['long'] = data.longitude;
         singleLoc['timestamp'] = Math.floor(Date.now() / 1000);
+        listToCompareResults.forEach(function(item, index, arr){
+          if(item['id'] == singleLoc['id']){
+            item['p_lat'] = singleLoc['lat'];
+            item['p_long'] = singleLoc['long'];
+            item['p_time'] = singleLoc['timestamp'];
+            addToFile(item);
+          }
+        });
         addMarker(singleLoc, color, false);
         addTRClickListener();
       },
@@ -200,5 +231,16 @@ $( document ).ready(function() {
     });
   }
 
+  $('#save').click(function(){
+    count = 2;
+    var headers = "id,exact_lat,exact_long,exact_time,perturbed_lat,perturbed_long,perturbed_time\n";
+    $('#download-area').append('<p><a href="data:text/plain;charset=utf-8,'+encodeURIComponent(headers+text)+'" download="results_'+count+'.csv">Download Results '+count+'</a></p>');
+    console.log('Save clicked');
+  });
+
+  function addToFile(item){
+    text = text + item['id'] + "," + item['o_lat'] + "," + item['o_long'] + "," + item['o_time'] + "," + item['p_lat'] +","+ item['p_long'] + "," + item['p_time'] + "\n";
+    console.log(text);
+  }
 
 });

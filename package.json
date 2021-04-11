@@ -20,6 +20,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "chart.js": "^3.1.0",
         "jquery": "^3.6.0",
         "popper.js": "^1.16.1"
     }

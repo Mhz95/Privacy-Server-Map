@@ -4,6 +4,8 @@ html {
 }
 
 html,body{
+  // position: relative;
+  height: auto;
   min-height: 740px;
   font-size: 18px;
   font-family: 'Fredoka One','Tajawal', cursive;
@@ -27,6 +29,10 @@ h6 {
   // font-family: 'Rubik', sans-serif;
 	margin: 10px 0;
 	font-weight: 300
+}
+p{
+  margin-top: 0.2rem !important;
+  margin-bottom: 0.2rem !important;
 }
 .label-custom{
   margin-bottom: 0px;
@@ -418,15 +424,15 @@ select {
 }
 a:focus {
   outline: 0 !important;
-  color: #000 !important;
+  //color: #000 !important;
 }
 a:hover {
   outline: 0 !important;
-  color: #000 !important;
+  //color: #000 !important;
 }
 a{
   text-decoration: none !important;
-  color: #000 !important;
+  //color: #000 !important;
 }
 .white-box {
   padding: 10px;

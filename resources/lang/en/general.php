@@ -22,6 +22,7 @@ return [
     'kparam' => 'K parameter:',
     'addnewloc-label' => 'Add New Location',
     'add' => 'Add',
+    'save' => 'Save',
     'reset-label' => 'Remove All Locations',
     'reset' => 'Clear',
     'number' => 'Locations count:',
