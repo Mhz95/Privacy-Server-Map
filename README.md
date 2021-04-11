@@ -7,7 +7,18 @@ Privacy Server Map is a web application developed using [Laravel framework](http
 <p align="center">
 <img src="https://github.com/Mhz95/Privacy-Server-Map/blob/main/preview.gif" width="500">
 </p>
- 
+
+## Steps to run the website on the localhost  
+
+- Install [NodeJs](https://nodejs.org/en/download/).  
+- Navigate to the project root folder using cmd/terminal and run the following commands:  
+- `composer update`
+- `npm install`  
+- Duplicate `.env.example` file and rename it to `.env`  
+- `php artisan key:generate`  
+- `php artisan serve --port=9000`
+- Open the browser and go to: `http://127.0.0.1:9000`
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
