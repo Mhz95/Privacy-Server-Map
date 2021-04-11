@@ -151,7 +151,7 @@ $( document ).ready(function() {
 
     $.ajax({
       type : 'post',
-      url : DP_SERVER_URL + '/dpserver/AnonymityServlet',
+      url : DP_SERVER_URL + '/K-anonymity-DP-Server/AnonymityServlet',
       data:
       {
         "_token": APP_CSRF,
